@@ -1,0 +1,21 @@
+<h1 class="text-gray-600 font-bold text-9xl" >Welcome </h1>
+
+<h2 class="text-gray-600 font-bold text-4xl" >These are our products</h2>
+
+<div class="flex flex-col" >
+
+
+<%= @products.each do |product| %>
+    <h2>
+        <%= product.title %>
+        <%= product.desc %>
+        <%= product.stock %>
+        <%= link_to "detail", product %>
+    </h2>
+    <br>
+<% end %>
+
+<button class= "w-20 h-12 bg-pink-500 rounded text-white">
+<%= link_to "New Product", new_product_path %>
+ </button>
+</div>

@@ -1,0 +1,27 @@
+
+<%= form_with model: product do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% product.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :desc %><br>
+    <%= form.text_area :desc %><br>
+    <% product.errors.full_messages_for(:desc).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :stock %><br>
+    <%= form.text_field :stock %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
