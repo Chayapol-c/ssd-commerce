@@ -1,10 +1,13 @@
-<h1><%= @product.title %></h1>
+<h1 class="my-6 text-4xl font-medium text-gray-700"><%= @product.title %></h1>
 
-<p><%= @product.desc %></p>
-<p><%= @product.stock %></p>
+<p class="text-md "><%= @product.desc %></p>
+<p class="text-md ">Stock : <%= @product.stock %></p>
 
-
+<% if admin_signed_in? %>
 <ul>
   <li><%= link_to "Edit", edit_product_path(@product) %></li>
+  <li><%= link_to "Delete", product_path(@product), method: :delete, data: { confirm: "Delete #{@product.title}?" } %></li>
 </ul>
+
+<% end %>
 

@@ -1,22 +1,22 @@
-<h1 class="text-gray-600 font-bold text-9xl" >Welcome </h1>
+<h1 class="my-6 text-4xl font-medium text-gray-700"> Products List</h1>
+<table class="table-auto border-collapse border border-pink-600">
+    <thead>
+        <tr>
+            <th class="border border-pink-600" > id </th>
+            <th class="border border-pink-600"> title </th>
+            <th class="border border-pink-600"> description </th>
+            <th class="border border-pink-600"> stock </th>
+            <th class="border border-pink-600"> Detail </th>
+        </tr>
+    </thead>
+    <% @products.each do |p| %>
+        <tr>
+            <td class="px-4 py-3 border border-pink-600"> <%= p.id %> </td>
+            <td class="border border-pink-600"> <%= p.title %> </td>
+            <td class="border border-pink-600"> <%= p.desc %> </td>
+            <td class="border border-pink-600"> <%= p.stock %> </td>
+            <td class="border border-pink-600"> <%= link_to  "Detail" , product_path(p) %> </td>
+        </tr>
+    <% end %>
+</table>
 
-<h2 class="text-gray-600 font-bold text-4xl" >These are our products</h2>
-
-<div class="flex flex-col" >
-
-<% @products.each do |p| %>
-    <%= p.title %>
-    <%= p.desc %>
-    <%= p.stock %>
-    <%= link_to  "Detail" , product_path(p) %>
-    </br>
-<% end %>
-
-
-<%= link_to "New Product", new_product_path %>
-<%= link_to "login", new_admin_session_path %>
-<%= link_to "logout", destroy_admin_session_path , method: :delete %>
-<%= link_to "signup", new_admin_registration_path %>
-
-
-</div>

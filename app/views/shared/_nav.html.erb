@@ -1,0 +1,25 @@
+<nav class="bg-gray-800">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="relative flex items-center justify-between h-16">
+            <div class="flex-1 flex items-center justify-center sm:item-stretch sm:justify-start">
+                <div class="flex-shrink-0 flex items-center">
+                <%= link_to "KaopunZa", root_path, class:"text-gray-300 rounded-md text-lg font-medium" %>
+                </div>
+                <div class="hidden sm:block sm:ml-6">
+                <div class="flex space-x-4">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <%= link_to "Product", products_path, class: "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                    <% if admin_signed_in? %>
+                        <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                    <% else %>
+                        <%= link_to "Login", new_admin_session_path , class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                    <% end %>
+
+                        <%= link_to "SignUp", new_admin_registration_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>                    
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
