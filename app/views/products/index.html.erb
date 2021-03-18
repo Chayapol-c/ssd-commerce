@@ -4,18 +4,18 @@
 
 <div class="flex flex-col" >
 
-
-<%= @products.each do |product| %>
-    <h2>
-        <%= product.title %>
-        <%= product.desc %>
-        <%= product.stock %>
-        <%= link_to "detail", product %>
-    </h2>
-    <br>
+<% @products.each do |p| %>
+    <%= p.title %>
+    <%= p.desc %>
+    <%= p.stock %>
+    <%= link_to  "Detail" , product_path(p) %>
+    </br>
 <% end %>
 
-<button class= "w-20 h-12 bg-pink-500 rounded text-white">
 <%= link_to "New Product", new_product_path %>
- </button>
+<%= link_to "login", new_admin_session_path %>
+<%= link_to "logout", destroy_admin_session_path , method: :delete %>
+<%= link_to "signup", new_admin_registration_path %>
+
+
 </div>
