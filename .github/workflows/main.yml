@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          heroku_api_key: "${{a48091e2-e64d-489f-9d3f-2064076b0975}}"
+          heroku_api_key: ${{secrets.a48091e2-e64d-489f-9d3f-2064076b0975}}
           heroku_app_name: "ssd2021-6210545947-commerce" #Must be unique in Heroku
           heroku_email: "chayapol.cha@ku.th"
 
