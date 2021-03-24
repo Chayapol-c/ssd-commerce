@@ -8,15 +8,15 @@
                 <div class="hidden sm:block sm:ml-6">
                 <div class="flex space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <%= link_to "Product", products_path, class: "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                    <%= link_to "Product", products_path, class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                     <% if admin_signed_in? %>
-                        <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                        <%= link_to "Add Product", new_product_path, class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"%>
+                        <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                     <% else %>
-                        <%= link_to "Login", new_admin_session_path , class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                        <%= link_to "Login", new_admin_session_path , class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                     <% end %>
 
-                        <%= link_to "SignUp", new_admin_registration_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>                    
-
+                    <%= link_to "SignUp", new_admin_registration_path, class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>                    
                 </div>
                 </div>
             </div>

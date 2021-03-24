@@ -4,9 +4,15 @@
 <p class="text-md ">Stock : <%= @product.stock %></p>
 
 <% if admin_signed_in? %>
-<ul>
-  <li><%= link_to "Edit", edit_product_path(@product) %></li>
-  <li><%= link_to "Delete", product_path(@product), method: :delete, data: { confirm: "Delete #{@product.title}?" } %></li>
+<ul class="flex space-x-3 my-6">
+  <li >
+    <%= link_to "Edit", edit_product_path(@product),
+    class: "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %></li>
+
+  <li>
+    <%= link_to "Delete", product_path(@product), 
+    method: :delete, data: { confirm: "Delete #{@product.title}?" },
+    class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %></li>
 </ul>
 
 <% end %>
