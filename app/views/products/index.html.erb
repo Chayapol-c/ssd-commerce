@@ -6,6 +6,7 @@
                 <th class="px-3 py-6 text-left" > id </th>
                 <th class="px-3 py-6 text-left"> title </th>
                 <th class="px-3 py-6 text-left"> description </th>
+                <th class="px-3 py-6 text-left"> catagories </th>
                 <th class="px-3 py-6 text-center"> stock </th>
                 <th class="px-3 py-6 text-center"> Detail </th>
             </tr>
@@ -16,6 +17,7 @@
                 <td class="px-3 py-6"> <%= p.id %> </td>
                 <td class="px-3 py-6"> <%= p.title %> </td>
                 <td class="px-3 py-6"> <%= p.desc %> </td>
+                <td class="px-3 py-6"> <%= p.categories.map(&:name).join(', ') || "NA" %> </td>
                 <td class="px-3 py-6 text-center"> <%= p.stock %> </td>
                 <td class="px-3 py-6 text-center"> <%= link_to  "Detail" , product_path(p) %> </td>
             </tr>

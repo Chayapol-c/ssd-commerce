@@ -11,6 +11,8 @@ class ProductsController < ApplicationController
 
     def new
         @product = Product.new
+        @all_categories = Category.all
+        @product_category = @product.product_categories.build
     end
 
     def edit
@@ -42,6 +44,6 @@ class ProductsController < ApplicationController
     private
     
     def product_params
-        params.require(:product).permit(:title, :desc, :stock)
-    end
+        params.require(:product).permit(:title, :desc, :stock, category_ids: [])
+      end
 end

@@ -20,11 +20,20 @@
 
   <div class="mb-4">
     <%= form.label :stock, class: "text-grey-darker text-sm font-bold mb-2" %><br>
-    <%= form.text_field :stock,
+    <%= form.number_field :stock,
         class: "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" %>
   </div>
+    <% product.errors.full_messages_for(:stock).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
 
-  <div>
+  <div class="mb-4">
+    <%= form.label "Categories: ", class: "text-grey-darker text-sm font-bold mb-2" %><br>
+    <div class="select is-multiple">
+        <%= form.collection_select(:category_ids, Category.all, :id, :name, {}, {multiple: true}) %>
+    </div>
+  </div>
+  <div class="action">
     <%= form.submit "Submit", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
   </div>
 <% end %>
