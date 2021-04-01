@@ -28,25 +28,32 @@
     <% end %>
 
   <div class="mb-4">
-    <form>
-        <div class="md:flex flex-col">
-                <%= form.label "Categories: ", class: "text-grey-darker text-sm font-bold mb-2" %><br>
-                <%= form.collection_select(
-                  :category_ids, 
-                  Category.all, 
-                  :id, 
-                  :name, 
-                  {}, 
-                  {:class => "form-multiselect block cursor-pointer ", multiple: true}) %>
-        </div>
-    </form>
-  </div>
+    <%= form.label :status, class: "text-grey-darker text-sm font-bold mb-2" %><br>
 
+
+  <%= form.select :status, Product.statuses.keys.map { |w| [w.humanize, w] },
+   class: "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" %>
 
 
 
   </div>
+
+  <div class="mb-4">
+    <div class="md:flex flex-col">
+            <%= form.label "Categories: ", class: "text-grey-darker text-sm font-bold mb-2" %><br>
+            <%= form.collection_check_boxes(
+              :category_ids, 
+              Category.all, 
+              :id, 
+              :name, 
+              {}, 
+              {:class => "form-multiselect block cursor-pointer ", multiple: true}) %>
+    </div>
+  </div>
+
   <div class="action">
     <%= form.submit "Submit", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
   </div>
+
+
 <% end %>

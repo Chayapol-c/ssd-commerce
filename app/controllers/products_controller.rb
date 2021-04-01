@@ -3,6 +3,11 @@ class ProductsController < ApplicationController
 
     def index
         @products = Product.all
+
+        respond_to do |format|
+            format.html {  }
+            format.csv { send_data generate_csv(Product.all), file_name: 'products.csv' }
+        end
     end
 
     def show
@@ -41,9 +46,23 @@ class ProductsController < ApplicationController
         redirect_to action: :index
     end
 
+    def csv_upload
+        data = params[:csv_file].read.split("\n")
+        data.each do |line|
+            attribute = line.split(",").map(&:strip)
+            Product.create title: attribute[0], desc: attribute[1], stock: attribute[2]
+            puts data
+        end
+        redirect_to action: :index
+    end
+
+
     private
-    
+    def generate_csv(products)
+        products.map { |p| [p.title, p.desc, p.stock].join(',') }.join("\n")
+    end
+
     def product_params
-        params.require(:product).permit(:title, :desc, :stock, category_ids: [])
+        params.require(:product).permit(:title, :desc, :status, :stock, category_ids: [])
       end
 end

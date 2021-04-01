@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root "products#index"
   get "/products", to: "products#index"
   get "/categories", to: "categories#index"
+
+  namespace :products do
+    post 'csv_upload'
+  end
   resources :products
   resources :categories
 end
