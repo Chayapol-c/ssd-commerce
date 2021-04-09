@@ -3,7 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
-
+# For file storage
+gem 'aws-sdk-s3'
 # For pagination
 gem 'kaminari'
 # For authentication
