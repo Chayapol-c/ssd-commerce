@@ -2,7 +2,7 @@ class Product < ApplicationRecord
     
     enum status: [:draft, :published, :archived]
 
-    # has_one_attached :primary_image
+    has_one_attached :primary_image
 
 
     has_many :product_categories, dependent: :destroy

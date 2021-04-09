@@ -3,14 +3,14 @@
         <div class="relative flex items-center justify-between h-16">
             <div class="flex-1 flex items-center justify-center sm:item-stretch sm:justify-start">
                 <div class="flex-shrink-0 flex items-center">
-                <%= link_to "KaopunZa", products_path, class:"text-gray-300 rounded-md text-lg font-medium" %>
+                <%= link_to "KaopunZa", admins_products_path, class:"text-gray-300 rounded-md text-lg font-medium" %>
                 </div>
                 <div class="hidden sm:block sm:ml-6">
                 <div class="flex space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <%= link_to "Product", products_path, class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                    <%= link_to "Product", admins_products_path, class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                     <% if admin_signed_in? %>
-                        <%= link_to "Add Product", new_product_path, class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"%>
+                        <%= link_to "Add Product", new_admins_product_path, class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"%>
                         <%= link_to "Categories", categories_path, class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                         <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                     <% else %>
