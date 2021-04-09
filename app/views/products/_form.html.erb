@@ -1,4 +1,4 @@
-<%= form_with model: product, url:admins_products_path, method: :post  do |form| %>
+<%= form_with model: product  do |form| %>
   <div class="mb-4">
     <%= form.label :title, class: "text-grey-darker text-sm font-bold mb-2" %><br>
     <%= form.text_field :title,
@@ -47,14 +47,6 @@
                 <%= b.label(:"data-value" => b.value) { b.check_box+ "  " + b.text }  %>
             <% end %>
     </div>
-  </div>
-
-  <div class="mb-4">
-    <% if product.primary_image.attached? %>
-      <%= image_tag @product.primary_image, class:"w-40 max-w-lg object-cover" %> 
-      
-    <% end %>
-    <%= form.file_field :primary_image %>
   </div>
 
   <div class="action">

@@ -1,4 +1,4 @@
-module Admins
+# module Admins
     class ProductsController < ApplicationController
         before_action :authenticate_admin!, except: [:index, :show]
     
@@ -69,4 +69,4 @@ module Admins
           end
     end
     
-end
+# end

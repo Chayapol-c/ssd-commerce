@@ -1,7 +1,7 @@
 <h1 class="my-6 text-4xl font-bold text-gray-700"> Products List</h1>
 
 <div>
-    <%= link_to "Download CSV", admins_products_path(format: :csv), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
+    <%= link_to "Download CSV", products_path(format: :csv), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
 </div>
 
 <div class="bg-white shadow-md rounded my-6">
@@ -21,23 +21,21 @@
         <% @products.each do |p| %>
             <tr class="border-b bg-gray-100 hover:bg-gray-200">
                 <td class="px-3 py-6"> 
-                    <% if p.primary_image.attached? %>
-                        <%= image_tag p.primary_image, class:"w-40 max-w-lg object-cover" %> 
-                    <% end %>
+                    <%= p.id %>
                 </td>
                 <td class="px-3 py-6"> <%= p.title %> </td>
                 <td class="px-3 py-6"> <%= p.desc %> </td>
                 <td class="px-3 py-6"> <%= p.status %> </td>
                 <td class="px-3 py-6"> <%= p.categories.map(&:name).join(', ') || "NA" %> </td>
                 <td class="px-3 py-6 text-center"> <%= p.stock %> </td>
-                <td class="px-3 py-6 text-center"> <%= link_to  "Detail" , admins_product_path(p) %> </td>
+                <td class="px-3 py-6 text-center"> <%= link_to  "Detail" , product_path(p) %> </td>
             </tr>
         <% end %>
         </tbody>
     </table>
 </div>
 
-<%= form_with url:admins_products_csv_upload_path, multipart: true do |form| %>
+<%= form_with url:products_csv_upload_path, multipart: true do |form| %>
 
     <div class="image-upload">
         <%= form.file_field :csv_file,
