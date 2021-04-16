@@ -1,7 +1,7 @@
 <h1 class="my-6 text-4xl font-bold text-gray-700"> Categories List</h1>
 <div class= "my-4">
 
-    <%= link_to "Create New", new_category_path %>
+    <%= link_to "Create New", new_admins_category_path %>
 
 </div>
     <table class="table-auto w-full">
@@ -16,8 +16,8 @@
             <tr class="border-b bg-gray-100 hover:bg-gray-200">
                 <td> <%= c.name %> </td>
                 <td> 
-                    <%= link_to "Show", category_path(c) %> 
-                    <%= link_to "Delete", category_path(c), method: :delete %> 
+                    <%= link_to "Show", admins_category_path(c) %> 
+                    <%= link_to "Delete", admins_category_path(c), method: :delete %> 
                 </td>
 
             </tr>

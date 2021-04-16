@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   
   namespace :admins do 
     resources :products
-    
+
     namespace :products do
       post 'csv_upload'
+      delete 'delete_image_attachment'
     end
+    resources :categories
   end
 
-  resources :categories
 end

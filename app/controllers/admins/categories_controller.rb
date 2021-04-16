@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Admins::CategoriesController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
   before_action :set_category, only: %i[ show edit update destroy ]
 
@@ -24,15 +24,11 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.create(category_params)
 
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to @category, notice: "Category was successfully created." }
-        format.json { render :show, status: :created, location: @category }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
+    if @category.invalid?
+        flash[:error] = @category.errors.full_messages
     end
+
+    redirect_to action: :index
   end
 
   # PATCH/PUT /categories/1 or /categories/1.json
