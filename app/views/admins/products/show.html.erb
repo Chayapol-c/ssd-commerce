@@ -16,11 +16,6 @@
     <% @product.images.each do |img| %>
       <div class="flex flex-col items-center mr-5">
         <%= image_tag img, class: "max-h-40 object-cover mb-4 " %>
-        <%= link_to "remove", admins_products_delete_image_attachment_path(img.id), 
-          method: :delete,
-          class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
-           %>
-
       </div>
     <% end %>
   </div>

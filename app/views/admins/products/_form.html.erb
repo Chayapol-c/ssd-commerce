@@ -51,17 +51,32 @@
 
   <div class="mb-4">
     <%= form.label "Cover image", class: "text-grey-darker text-sm font-bold mb-2" %><br>
-    <% if product.primary_image.attached? %>
-      <%= image_tag @product.primary_image, class:"w-40 max-w-lg object-cover mb-2" %> 
-    <% end %>
+
+    <div class="mb-4">
+      <% if product.primary_image.attached? %>
+        <%= image_tag @product.primary_image, class:"w-40 max-w-lg object-cover mb-4" %> 
+        <%= link_to 'Remove', '/admins/products/delete_image_attachment/' + @product.primary_image.id.to_s, 
+        class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer",
+        data: { confirm: "Delete Cover image?" }  %><br>
+      <% end %>
+    </div>
     <%= form.file_field :primary_image %>
   </div>
 
   <div class="mb-4">
       <%= form.label "Support images", class: "text-grey-darker text-sm font-bold mb-2" %><br>
-    <% if product.images.attached? %>
-      <%= image_tag @product.images, class:"w-1/4 object-cover" %> 
-    <% end %>
+      <% if product.images.attached? %>
+        <div class="flex mb-4">
+          <% @product.images.each do |img| %>
+            <div class="flex flex-col items-start mr-5">
+              <%= image_tag img, class: "max-h-40 object-cover mb-4 " %>
+              <%= link_to 'Remove', '/admins/products/delete_image_attachment/' + img.id.to_s,
+                class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer",
+                data: { confirm: "Delete this image?" } %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <%= form.file_field :images, multiple: true %>
   </div>
 
@@ -69,7 +84,7 @@
 
 
   <div class="action">
-    <%= form.submit "Submit", class: "bg-blue-500 hover:bg-blue-700 btn" %>
+    <%= form.submit "Submit", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
   </div>
 
 
