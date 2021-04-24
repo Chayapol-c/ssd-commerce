@@ -1,7 +1,8 @@
-<h1 class="my-6 text-4xl font-bold text-gray-700"> Products List</h1>
+<%= render 'nav' %>
+<h1 class="my-6 header"> Products List</h1>
 
 <div>
-    <%= link_to "Download CSV", admins_products_path(format: :csv), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
+    <%= link_to "Download CSV", admins_products_path(format: :csv), class: "bg-blue-500 hover:bg-blue-700 btn" %>
 </div>
 
 <div class="bg-white shadow-md rounded my-6">
@@ -49,7 +50,7 @@
         <%= form.file_field :csv_file,
             class: "text-gray-400 py-2 cursor-pointer" %>
         <%= form.submit :upload, 
-            class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
+            class: "bg-blue-500 hover:bg-blue-700 btn" %>
     </div>
 
 
