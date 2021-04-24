@@ -12,13 +12,3 @@
 *
 *= require_tree .
 *= require_self
-*/
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-@import "tailwindcss/base";
-
-@import "tailwindcss/components";
-
-@import "tailwindcss/utilities";
-
