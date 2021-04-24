@@ -1,8 +1,8 @@
-@import "tailwindcss/base";
+@tailwind base;
 
-@import "tailwindcss/components";
+@tailwind components;
 
-@import "tailwindcss/utilities";
+@tailwind utilities;
 @layer components{
     .btn{
         @apply text-white font-bold py-2 px-4 rounded cursor-pointer;
