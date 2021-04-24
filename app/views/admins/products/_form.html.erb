@@ -1,3 +1,4 @@
+<%= render 'nav' %>
 <%= form_with model: [:admins, product] do |form| %>
   <div class="mb-4">
     <%= form.label :title, class: "text-grey-darker text-sm font-bold mb-2" %><br>
@@ -84,7 +85,7 @@
 
 
   <div class="action">
-    <%= form.submit "Submit", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
+    <%= form.submit "Submit", class: "bg-blue-500 hover:bg-blue-700 btn" %>
   </div>
 
 
