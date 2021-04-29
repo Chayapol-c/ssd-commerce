@@ -1,7 +1,7 @@
 class Admins::CategoriesController < ApplicationController
-  before_action :authenticate_admin!, except: [:index, :show]
+  before_action :authenticate_admin!
   before_action :set_category, only: %i[ show edit update destroy ]
-
+  layout 'admins'
   # GET /categories or /categories.json
   def index
     @categories = Category.all

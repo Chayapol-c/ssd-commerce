@@ -1,7 +1,7 @@
 
 class Admins::ProductsController < ApplicationController
     before_action :authenticate_admin!
-
+    layout 'admins'
     def index
         @products = Product.all
 
@@ -9,6 +9,7 @@ class Admins::ProductsController < ApplicationController
             format.html {  }
             format.csv { send_data generate_csv(Product.all), file_name: 'products.csv' }
         end
+
     end
 
     def show
