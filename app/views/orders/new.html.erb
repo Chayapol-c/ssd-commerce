@@ -1,0 +1,18 @@
+
+<%= form_with model: @order do |form| %>
+    <p class=""> Fill in your information</p>
+
+    <div class="mb-4">
+    <%= form.label :address, class: "text-grey-darker text-sm font-bold mb-2" %><br>
+    <%= form.text_field :address,
+        class: "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" %>
+
+    </div>
+
+
+    <div class="action">
+        <%= form.submit "Submit", class: "bg-blue-500 hover:bg-blue-700 btn" %>
+    </div>
+
+
+<% end %>

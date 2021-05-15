@@ -14,8 +14,8 @@
         <tbody class="text-sm font-light">
         <% @categories.each do |c| %>
             <tr class="border-b bg-gray-100 hover:bg-gray-200">
-                <td> <%= c.name %> </td>
-                <td> 
+                <td class = "px-3 py-6"> <%= c.name %> </td>
+                <td class= "px-3 py-6"> 
                     <%= link_to "Show", admins_category_path(c) %> 
                     <%= link_to "Delete", admins_category_path(c), method: :delete %> 
                 </td>
