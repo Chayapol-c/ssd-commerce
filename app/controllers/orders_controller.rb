@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
 
     layout 'home'
+
+    def index
+        redirect_to homes_path
+    end
     def new
         @order = Order.new
     end
